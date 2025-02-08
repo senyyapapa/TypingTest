@@ -4,7 +4,6 @@ from fastapi import FastAPI
 import uvicorn
 from api import router as api_router
 from core import db_helper
-from words import router as words_router
 from core import settings
 
 @asynccontextmanager
@@ -18,10 +17,7 @@ main_app = FastAPI(
     lifespan=lifespan,
     default_response_class=ORJSONResponse,
 )
-main_app.include_router(
-    words_router,
-    prefix=settings.api.prefix,
-)
+
 main_app.include_router(
     api_router,
 )

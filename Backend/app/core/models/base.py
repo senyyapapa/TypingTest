@@ -1,4 +1,4 @@
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, declared_attr
+from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, declared_attr, relationship
 
 from utils.case_convert import camel_case_to_snake_case
 
@@ -11,5 +11,6 @@ class Base(DeclarativeBase):
 
 
     id: Mapped[int] = mapped_column(primary_key=True)
-    username: Mapped[str] = mapped_column(unique=True)
-    password: Mapped[bytes] = mapped_column()
+
+
+

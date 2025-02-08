@@ -1,5 +1,4 @@
 from datetime import timedelta, datetime
-
 import jwt
 import bcrypt
 from core import settings

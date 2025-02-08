@@ -5,6 +5,7 @@ from pydantic import BaseModel, ConfigDict
 
 
 class UserBase(BaseModel):
+    id: int
     username: str
     password: str
     active: bool = True
@@ -12,6 +13,10 @@ class UserBase(BaseModel):
 class Token(BaseModel):
     access_token: str
     token_type: str
+
+class UserSchema(BaseModel):
+    id: int
+    username: str
 
 class UserRegister(UserBase):
     model_config = ConfigDict(strict=True)

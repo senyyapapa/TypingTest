@@ -1,37 +1,15 @@
 from fastapi import Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 from typing import Sequence, Annotated
-from fastapi import Form, HTTPException
+from fastapi import Form, HTTPException, status
 from sqlalchemy.ext.asyncio import AsyncSession
-from fastapi import HTTPException, status
-from auth import utils as auth_utils
 from auth.utils import hash_password, validate_password
 from core.models import User
 from sqlalchemy import select
 from auth import utils as auth_utils
 from core.schemas.user import UserRegister, UserLogin
 from core.schemas.user import Token
-# from crud.validate_auth import validate_auth_user
 
-
-#
-#
-# async def get_all_users(session: AsyncSession) -> Sequence[User]:
-#     stmt = select(User).order_by(User.id)
-#     result = await session.scalars(stmt)
-#     return result.all()
-#
-# async def create_user(
-#         session: AsyncSession,
-#         user_create: UserCreate,
-# ):
-#     user = User(**user_create.model_dump())
-#     session.add(user)
-#     await session.commit()
-#     await session.refresh(user)
-#     return user
-#
-#
 
 async def register_user(
         session: AsyncSession,
@@ -73,14 +51,9 @@ async def login_user(
             detail="Invalid username or password"
         )
 
-    # if not user.active:
-    #     raise HTTPException(
-    #         status_code=status.HTTP_403_FORBIDDEN,
-    #         detail="User is inactive"
-    #     )
     else:
         jwt_payload = {
-            "sub": user_log.username,
+            "sub": str(user.id),
             "username": user_log.username,
         }
         token = auth_utils.encoded_jwt(jwt_payload)

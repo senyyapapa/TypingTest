@@ -6,13 +6,11 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import defer
 from sqlmodel.ext.asyncio.session import AsyncSession
 # from starlette import status
-# from auth import utils as auth_utils
-
 from core import settings, db_helper
 # from jwt.exceptions import InvalidTokenError
 from crud import users as crud_users
 from core.schemas.user import UserRegister, UserLogin
-# from auth import utils as auth_utils
+
 
 
 # http_bearer = HTTPBearer()
@@ -23,25 +21,6 @@ from core.schemas.user import UserRegister, UserLogin
 
 router = APIRouter(tags=['users'])
 
-# @router.get('/users', response_model=list[UserRead])
-# async def get_users(
-#         session: Annotated[AsyncSession, Depends(db_helper.session_getter)],
-# ):
-#     users = await crud_users.get_all_users(session=session)
-#     return users
-#
-#
-#
-# @router.post('/users', response_model=UserRead)
-# async def create_user(
-#         user_create: UserCreate,
-#         session: Annotated[AsyncSession, Depends(db_helper.session_getter)],
-# ) -> UserRead:
-#     user = await crud_users.create_user(
-#         session=session,
-#         user_create=user_create,
-#     )
-#     return user
 
 @router.post("/registration")
 async def reg_user(
