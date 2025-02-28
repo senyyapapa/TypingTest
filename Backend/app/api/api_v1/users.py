@@ -4,13 +4,13 @@ from fastapi import APIRouter, Depends, HTTPException, status
 # from fastapi.params import Form
 # from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from sqlalchemy.orm import defer
-from sqlmodel.ext.asyncio.session import AsyncSession
+# from sqlmodel.ext.asyncio.session import AsyncSession
 # from starlette import status
 from core import settings, db_helper
 # from jwt.exceptions import InvalidTokenError
 from crud import users as crud_users
 from core.schemas.user import UserRegister, UserLogin
-
+from sqlalchemy.ext.asyncio.session import AsyncSession
 
 
 # http_bearer = HTTPBearer()

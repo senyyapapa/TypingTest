@@ -17,6 +17,6 @@ def load_words():
 @router.get("/words")
 async def get_words():
     all_words = load_words()
-    selected_words = random.sample(all_words, 100)
+    selected_words = random.sample(all_words, 45)
     random.shuffle(selected_words)
     return {"words": selected_words}

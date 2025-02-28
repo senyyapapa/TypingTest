@@ -24,7 +24,7 @@ const TypingPractice = () => {
 
     async function fetchWords() {
         setLoading(true);
-        const response = await axios.get('http://localhost:8000/words');
+        const response = await axios.get('http://localhost:8000/api/users/get_words/words');
         const wordBackend: string = await response.data.words.join(' ');
 
         setWords(wordBackend);

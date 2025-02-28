@@ -11,6 +11,7 @@ from core.schemas.user import UserRegister, UserLogin
 from core.schemas.user import Token
 
 
+
 async def register_user(
         session: AsyncSession,
         user_reg: UserRegister,

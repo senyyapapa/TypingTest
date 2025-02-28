@@ -13,6 +13,7 @@ class ApiV1Prefix(BaseModel):
     prefix: str = '/users'
     users: str = '/users'
 
+
 class ApiPrefix(BaseModel):
     prefix: str = '/api'
     v1: ApiV1Prefix = ApiV1Prefix()
@@ -32,7 +33,7 @@ class DatabaseConfig(BaseModel):
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
-        env_file=("D:/Projects/TypingTest/Backend/app/.env.template", "D:/Projects/TypingTest/Backend/app/.env"),
+        env_file=("C:/Users/takeb/TypingTest/Backend/app/.env"),
         case_sensitive=False,
         env_nested_delimiter='__',
         env_prefix='TYPETEST__',

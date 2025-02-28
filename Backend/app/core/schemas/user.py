@@ -5,10 +5,10 @@ from pydantic import BaseModel, ConfigDict
 
 
 class UserBase(BaseModel):
-    id: int
+    # id: int
     username: str
     password: str
-    active: bool = True
+    # active: bool = True
 
 class Token(BaseModel):
     access_token: str
